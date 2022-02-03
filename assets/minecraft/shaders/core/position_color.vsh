@@ -1,6 +1,7 @@
 #version 150
 
 #moj_import <config.glsl>
+#moj_import <devmode.glsl>
 
 in vec3 Position;
 in vec4 Color;
@@ -18,9 +19,11 @@ void main() {
 	durability = -1.0;
 	corner = vec2(-1.0);
 	if(Position.z == 0 && Position.y > yMin && Position.y < yMax) {
-		if(Color == vec4(0.0, 0.0, 0.0, 1.0)) {
-		}
-		else {
+		if(Color != vec4(0.0, 0.0, 0.0, 1.0)) {
+			if(devmode) {
+				vertexColor = vec4(0.0, 1.0, 1.0, 1.0);
+				return;
+			}
 			if(Color.r == Color.g) durability = 0.5;
 			else if(Color.r < Color.g) {
 				durability = 1 - (Color.r / 2.0);
