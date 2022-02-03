@@ -46,6 +46,9 @@ void main() {
 				gl_Position += ProjMat * ModelViewMat * vec4(13.0 * (1 - durability), 0.0, 0.0, 0.0);
 			}
 		}
+		else {
+			gl_Position = vec4(0.0);
+		}
 	}
 	
 	vertexColor = Color;
