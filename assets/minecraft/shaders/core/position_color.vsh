@@ -1,7 +1,6 @@
 #version 150
 
-#define yMin 336
-#define yMax 340
+#moj_import <config.glsl>
 
 in vec3 Position;
 in vec4 Color;
