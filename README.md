@@ -14,3 +14,7 @@ If the durability icons don't change, **Make sure that you set the guiScale in `
 **__Otherwise it won't detect it!__**
 
 The default guiScale value is 2.
+
+
+### Rectangular display option
+You can change ```circular``` in ```assets/minecraft/shaders/include/config.glsl``` to false to make the indicator rectangular instead of circular.
