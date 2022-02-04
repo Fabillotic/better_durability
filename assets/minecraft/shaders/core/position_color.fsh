@@ -8,6 +8,8 @@ flat in float durability;
 
 uniform vec4 ColorModulator;
 
+#moj_import <config.glsl>
+
 out vec4 fragColor;
 
 void main() {
@@ -20,7 +22,7 @@ void main() {
 	if(corner.x >= 0.0) {
 		//fragColor = vec4(corner.x, durability, corner.y, 1.0);
 		vec2 f = corner * 2 - vec2(1.0);
-		if(length(f) >= 0.9 && length(f) <= 1.0) {
+		if(circular ? (length(f) >= 0.9 && length(f) <= 1.0) : (abs(f.x) >= 0.9 || abs(f.y) >= 0.9)) {
 			float a = atan(f.y, f.x);
 			a += (PI / 2);
 			if(a < 0) a = 2 * PI + a;
